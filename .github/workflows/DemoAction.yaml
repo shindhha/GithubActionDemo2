@@ -1,7 +1,14 @@
 name: GitHub Action Demo
-on: [workflow_dispatch]
+on: 
+  [workflow_dispatch]:
+    inputs:
+      server:
+        description: 'Environment to deploy'
+        required: true
+        default: 'dev'
 jobs:
-  OreoJob:
-    name: Second Job
-    runs-on: Ubuntu-latest
-    steps:
+  get-source:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Start Workflow
+        run: echo "Workflow démarré"
